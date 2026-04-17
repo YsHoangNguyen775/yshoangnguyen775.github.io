@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Sơn Hoàng | Profile</title>
+    <title>Nguyễn Sơn Hoàng | Bio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,40 +12,40 @@
 </head>
 <body class="bg-[#0f172a]">
 
-    <nav class="nav-bar">
-        <div class="max-w-4xl mx-auto w-full flex">
-            <div onclick="openTab(event, 'tab-profile')" class="tab-btn active">TÔI</div>
-            <div onclick="openTab(event, 'tab-anh')" class="tab-btn">ẢNH</div>
-            <div onclick="openTab(event, 'tab-lich')" class="tab-btn">LỊCH</div>
-            <div onclick="openTab(event, 'tab-map')" class="tab-btn">MAP</div>
-            <div onclick="openTab(event, 'tab-khac')" class="tab-btn">KHÁC</div>
-        </div>
-    </nav>
-
-    <main class="main-content max-w-4xl mx-auto px-6 pb-20">
-
-        <div id="tab-profile" class="tab-content active text-center">
-            <div class="flex flex-col items-center">
-                <img src="dalat1.jpg" class="w-28 h-28 rounded-full border-4 border-blue-500 mb-4 object-cover shadow-2xl">
-                <h1 class="text-2xl font-bold">Nguyễn Sơn Hoàng</h1>
-                <p class="text-blue-400 text-sm mb-6">Y tế Thới Sơn | An Giang</p>
-                
-                <div class="flex space-x-4 mb-8">
-                    <a href="https://zalo.me/0359142775" target="_blank" class="w-12 h-12 glass-card flex items-center justify-center text-blue-400 text-xl"><i class="fa-solid fa-comment"></i></a>
-                    <a href="tel:0359142775" class="w-12 h-12 glass-card flex items-center justify-center text-green-400 text-xl"><i class="fa-solid fa-phone"></i></a>
-                </div>
-
-                <div class="glass-card w-full text-sm italic text-gray-400">
-                    "Chào mừng bạn đến với trang cá nhân của tôi. Đang nghiên cứu Unity & AI Agent thế hệ mới."
-                </div>
+    <main class="max-w-4xl mx-auto px-6">
+        
+        <section class="flex flex-col items-center pt-10 text-center">
+            <img src="dalat1.jpg" class="w-28 h-28 rounded-full border-4 border-blue-500 mb-4 object-cover shadow-2xl">
+            <h1 class="text-2xl font-bold">Nguyễn Sơn Hoàng</h1>
+            <p class="text-blue-400 text-sm mb-6 uppercase tracking-wider">Y tế Thới Sơn | An Giang</p>
+            
+            <div class="flex space-x-4 mb-4">
+                <a href="https://zalo.me/0359142775" target="_blank" class="w-10 h-10 glass-card p-0 flex items-center justify-center text-blue-400"><i class="fa-solid fa-comment"></i></a>
+                <a href="tel:0359142775" class="w-10 h-10 glass-card p-0 flex items-center justify-center text-green-400"><i class="fa-solid fa-phone"></i></a>
             </div>
+        </section>
+
+        <div class="status-box mt-4">
+            <h3 class="text-blue-400 font-bold mb-3 flex items-center italic">
+                <i class="fa-solid fa-newspaper mr-2"></i> Trạng thái mới nhất
+            </h3>
+            <p class="text-gray-200 text-sm leading-relaxed italic">
+                "Đang tập trung phát triển dự án Tam Quốc Kiêu Hùng và hoàn thiện kỹ năng Rigging trong Blender. Đời còn dài, cứ đi rồi sẽ đến!"
+            </p>
+            <p class="text-[10px] text-gray-500 mt-4">— Cập nhật ngày 17/04/2026</p>
         </div>
 
-        <div id="tab-anh" class="tab-content">
-            <div class="swiper mySwiper">
+        <nav class="nav-buttons">
+            <div onclick="openTab(event, 'tab-anh')" class="btn-item active"><i class="fa-solid fa-image"></i>ẢNH</div>
+            <div onclick="openTab(event, 'tab-lich')" class="btn-item"><i class="fa-solid fa-calendar-alt"></i>LỊCH</div>
+            <div onclick="openTab(event, 'tab-map')" class="btn-item"><i class="fa-solid fa-map-location-dot"></i>MAP</div>
+        </nav>
+
+        <div id="tab-anh" class="tab-content active">
+            <div class="swiper mySwiper glass-card p-2">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Anh+Kỷ+Niệm" class="rounded-2xl"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Anh+Kỷ+Niệm" class="rounded-2xl"></div>
+                    <div class="swiper-slide"><img src="dalat1.jpg" class="rounded-xl w-full h-64 object-cover"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Anh+Ky+Niem" class="rounded-xl w-full h-64 object-cover"></div>
                 </div>
                 <div class="swiper-pagination mt-4"></div>
             </div>
@@ -58,21 +58,8 @@
         </div>
 
         <div id="tab-map" class="tab-content">
-            <div class="glass-card h-[400px] p-1">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.363715392658!2d104.99517807451368!3d10.617750989524022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUwLjYiRQ!5e0!3m2!1svi!2s!4v1713333333333!5m2!1svi!2s" class="w-full h-full rounded-xl border-0" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div id="tab-khac" class="tab-content">
-            <div class="grid grid-cols-1 gap-4">
-                <div class="glass-card">
-                    <h3 class="font-bold text-orange-400 mb-2">Kỹ năng</h3>
-                    <p class="text-sm">Rigging Blender, Lập trình Unity, Quản lý Y tế cơ sở.</p>
-                </div>
-                <div class="glass-card">
-                    <h3 class="font-bold text-purple-400 mb-2">Dự án</h3>
-                    <p class="text-sm">Game Tam Quốc, AI Agent hỗ trợ báo cáo y tế.</p>
-                </div>
+            <div class="glass-card h-80 p-1">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3923.3615170367!2d104.997753!3d10.617751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1713360000000" class="w-full h-full rounded-xl border-0" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -84,12 +71,13 @@
 
         function openTab(evt, tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.btn-item').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             evt.currentTarget.classList.add('active');
 
+            // Cập nhật lại kích thước lịch khi bấm vào tab
             if (tabId === 'tab-lich' && calendar) {
-                setTimeout(() => { calendar.updateSize(); }, 50);
+                setTimeout(() => { calendar.updateSize(); }, 100);
             }
         }
 
