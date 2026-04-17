@@ -1,28 +1,21 @@
-:root { --primary: #3b82f6; --glass: rgba(255, 255, 255, 0.05); }
-body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 0; }
+:root { --primary: #3b82f6; --glass: rgba(255, 255, 255, 0.1); }
+body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; margin: 0; }
 
-.glass-card { background: var(--glass); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 20px; }
-
-/* Nút bấm Menu dưới Avatar */
-.nav-buttons { display: grid; grid-template-cols: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
-.btn-item { 
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 12px 5px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s;
-    font-size: 11px; font-weight: bold; color: #94a3b8;
+/* Thanh menu cố định trên cùng */
+.nav-bar { 
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999; 
+    background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.btn-item i { display: block; margin-bottom: 5px; font-size: 18px; }
-.btn-item.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-/* Tab hiển thị */
-.tab-content { display: none; margin-top: 20px; animation: slideUp 0.4s ease; }
+.tab-btn { padding: 10px 15px; font-size: 12px; font-weight: bold; cursor: pointer; border-bottom: 2px solid transparent; transition: 0.3s; }
+.tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); background: rgba(59, 130, 246, 0.1); }
+
+/* Nội dung */
+.tab-content { display: none; padding-top: 20px; animation: fadeIn 0.4s; }
 .tab-content.active { display: block; }
 
-@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* Lịch tháng */
-#calendar-month { font-size: 0.75rem; min-height: 420px; color: white; }
-.fc-toolbar-title { font-size: 1rem !important; }
-.fc-button { background: var(--primary) !important; border: none !important; font-size: 0.6rem !important; }
-
-/* Khung trạng thái giống hình ông gửi */
-.status-box { background: rgba(30, 41, 59, 0.5); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); }
+.glass-card { background: var(--glass); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); padding: 20px; }
+.today-highlight { border: 2px solid var(--primary) !important; background: rgba(59, 130, 246, 0.2); }
