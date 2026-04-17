@@ -3,102 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Sơn Hoàng | Profile</title>
+    <title>Nguyễn Sơn Hoàng | Bio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-<body class="py-10">
+<body class="bg-[#0f172a]">
 
-    <header class="flex flex-col items-center justify-center text-center mb-10">
-        <img src="dalat1.jpg" class="w-24 h-24 rounded-full border-4 border-blue-500 shadow-xl mb-4 object-cover">
-        <h1 class="text-xl font-bold">Nguyễn Sơn Hoàng</h1>
-        <p class="text-gray-400 text-xs mb-4">Y tế Thới Sơn | An Giang</p>
-        <div class="flex space-x-4">
-            <a href="https://zalo.me/0359142775" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center text-blue-400"><i class="fa-solid fa-comment"></i></a>
-            <a href="tel:0359142775" class="w-10 h-10 glass rounded-full flex items-center justify-center text-green-400"><i class="fa-solid fa-phone"></i></a>
-        </div>
-    </header>
-
-    <nav class="max-w-4xl mx-auto px-6 mb-8">
-        <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
-            <button onclick="openTab(event, 'tab-anh')" class="tab-btn active p-3 rounded-xl text-[10px] font-bold uppercase"><i class="fa-solid fa-image block mb-1 text-lg"></i> Ảnh</button>
-            <button onclick="openTab(event, 'tab-lich')" class="tab-btn p-3 rounded-xl text-[10px] font-bold uppercase"><i class="fa-solid fa-calendar-week block mb-1 text-lg"></i> Lịch</button>
-            <button onclick="openTab(event, 'tab-map')" class="tab-btn p-3 rounded-xl text-[10px] font-bold uppercase"><i class="fa-solid fa-map-location-dot block mb-1 text-lg"></i> Map</button>
-            <button onclick="openTab(event, 'tab-dv')" class="tab-btn p-3 rounded-xl text-[10px] font-bold uppercase"><i class="fa-solid fa-briefcase block mb-1 text-lg"></i> Dịch vụ</button>
-            <button onclick="openTab(event, 'tab-kt')" class="tab-btn p-3 rounded-xl text-[10px] font-bold uppercase"><i class="fa-solid fa-book block mb-1 text-lg"></i> Kiến thức</button>
-            <button onclick="openTab(event, 'tab-tl')" class="tab-btn p-3 rounded-xl text-[10px] font-bold uppercase"><i class="fa-solid fa-file block mb-1 text-lg"></i> Tài liệu</button>
+    <nav class="nav-bar">
+        <div class="max-w-4xl mx-auto flex justify-around">
+            <div onclick="openTab(event, 'tab-profile')" class="tab-btn active uppercase">Tôi</div>
+            <div onclick="openTab(event, 'tab-anh')" class="tab-btn uppercase">Ảnh</div>
+            <div onclick="openTab(event, 'tab-lich')" class="tab-btn uppercase">Lịch</div>
+            <div onclick="openTab(event, 'tab-map')" class="tab-btn uppercase">Bản đồ</div>
+            <div onclick="openTab(event, 'tab-khac')" class="tab-btn uppercase">Khác</div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6">
-        
-        <div id="tab-anh" class="tab-content active">
-            <div class="swiper mySwiper glass p-2">
+    <main class="max-w-4xl mx-auto px-6 mt-[70px] pb-20">
+
+        <div id="tab-profile" class="tab-content active text-center">
+            <img src="dalat1.jpg" class="w-24 h-24 rounded-full border-4 border-blue-500 mx-auto mb-4 object-cover shadow-2xl">
+            <h1 class="text-xl font-bold">Nguyễn Sơn Hoàng</h1>
+            <p class="text-gray-400 text-sm mb-6">Y tế Thới Sơn | An Giang</p>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="https://zalo.me/0359142775" target="_blank" class="w-12 h-12 glass-card flex items-center justify-center text-blue-400 text-xl"><i class="fa-solid fa-comment"></i></a>
+                <a href="tel:0359142775" class="w-12 h-12 glass-card flex items-center justify-center text-green-400 text-xl"><i class="fa-solid fa-phone"></i></a>
+            </div>
+            <div class="glass-card text-sm italic text-gray-300">
+                "Nhân viên y tế nhà nước. Đang phát triển dự án Unity & AI."
+            </div>
+        </div>
+
+        <div id="tab-anh" class="tab-content">
+            <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Anh+Gia+Dinh"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Anh+Gia+Dinh"></div>
+                    <div class="swiper-slide rounded-xl overflow-hidden"><img src="dalat1.jpg" class="w-full h-64 object-cover"></div>
+                    <div class="swiper-slide rounded-xl overflow-hidden"><img src="https://via.placeholder.com/800x400?text=Kỷ+Niệm+Gia+Đình" class="w-full h-64 object-cover"></div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="mt-4 flex justify-center space-x-2 swiper-pagination"></div>
             </div>
         </div>
 
         <div id="tab-lich" class="tab-content">
-            <div class="grid grid-cols-2 md:grid-cols-7 gap-2">
-                <div class="glass p-4 rounded-xl text-center" id="day-1"><p class="text-[10px] opacity-50">T2</p><p class="text-xs font-bold">Trực</p></div>
-                <div class="glass p-4 rounded-xl text-center" id="day-2"><p class="text-[10px] opacity-50">T3</p><p class="text-xs font-bold">Ra trực</p></div>
-                <div class="glass p-4 rounded-xl text-center" id="day-3"><p class="text-[10px] opacity-50">T4</p><p class="text-xs font-bold">Hành chính</p></div>
-                <div class="glass p-4 rounded-xl text-center" id="day-4"><p class="text-[10px] opacity-50">T5</p><p class="text-xs font-bold text-orange-400">Tập huấn</p></div>
-                <div class="glass p-4 rounded-xl text-center" id="day-5"><p class="text-[10px] opacity-50">T6</p><p class="text-xs font-bold">Trực đêm</p></div>
-                <div class="glass p-4 rounded-xl text-center" id="day-6"><p class="text-[10px] opacity-50">T7</p><p class="text-xs font-bold">Nghỉ</p></div>
-                <div class="glass p-4 rounded-xl text-center" id="day-0"><p class="text-[10px] opacity-50">CN</p><p class="text-xs font-bold">Nghỉ</p></div>
+            <h2 class="font-bold text-blue-400 mb-4">Lịch Công Việc Tuần</h2>
+            <div class="grid grid-cols-1 gap-2">
+                <div class="glass-card flex justify-between items-center" id="day-1"><span>Thứ 2</span><b>Trực Chính</b></div>
+                <div class="glass-card flex justify-between items-center" id="day-2"><span>Thứ 3</span><b>Ra Trực</b></div>
+                <div class="glass-card flex justify-between items-center" id="day-3"><span>Thứ 4</span><b>Hành Chính</b></div>
+                <div class="glass-card flex justify-between items-center" id="day-4"><span>Thứ 5</span><b class="text-orange-400">Tập Huấn</b></div>
+                <div class="glass-card flex justify-between items-center" id="day-5"><span>Thứ 6</span><b>Trực Đêm</b></div>
+                <div class="glass-card flex justify-between items-center" id="day-6"><span>Thứ 7</span><b>Nghỉ</b></div>
+                <div class="glass-card flex justify-between items-center" id="day-0"><span>Chủ Nhật</span><b>Nghỉ</b></div>
             </div>
         </div>
 
         <div id="tab-map" class="tab-content">
-            <div class="glass p-2 rounded-2xl h-80 overflow-hidden">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3923.415059714936!2d104.99517807503756!3d10.617750989523214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUxLjkiRQ!5e0!3m2!1svi!2s!4v1713364000000!5m2!1svi!2s" class="w-full h-full border-0 rounded-lg" allowfullscreen="" loading="lazy"></iframe>
+            <div class="glass-card h-80 overflow-hidden p-1">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15701.32599388339!2d104.9877!3d10.6177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUxLjkiRQ!5e0!3m2!1svi!2svn!4v1713360000000!5m2!1svi!2svn" class="w-full h-full rounded-lg border-0" allowfullscreen="" loading="lazy"></iframe>
             </div>
+            <p class="text-center text-xs mt-4 text-gray-500">Tọa độ: Thới Sơn, Tịnh Biên, An Giang</p>
         </div>
 
-        <div id="tab-dv" class="tab-content">
-            <div class="glass p-6 rounded-xl">
-                <h3 class="font-bold text-emerald-400 mb-2">Hỗ trợ Y tế & Kỹ thuật</h3>
-                <p class="text-sm text-gray-400">Tư vấn sức khỏe tại Thới Sơn & Hỗ trợ Dev Game AI.</p>
+        <div id="tab-khac" class="tab-content">
+            <div class="space-y-4">
+                <div class="glass-card"><b>Kiến thức:</b> Rigging Blender, Unity AI.</div>
+                <div class="glass-card"><b>Tài liệu:</b> Biểu mẫu y tế Thới Sơn.</div>
             </div>
-        </div>
-
-        <div id="tab-kt" class="tab-content">
-            <div class="glass p-4 rounded-lg flex justify-between items-center text-sm">
-                <span>Rigging Blender cơ bản</span>
-                <i class="fa-solid fa-play-circle"></i>
-            </div>
-        </div>
-
-        <div id="tab-tl" class="tab-content text-sm">
-            <div class="glass p-4 rounded-lg"><i class="fa-solid fa-file-pdf mr-2"></i> Biểu mẫu Y tế (.pdf)</div>
         </div>
 
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].classList.remove("active"); }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+        // Chuyển Tab
+        function openTab(evt, tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
         }
 
-        // Tự động highlight ngày hiện tại
-        const today = new Date().getDay(); 
-        const activeDay = document.getElementById('day-' + today);
-        if (activeDay) { activeDay.classList.add('today-highlight'); }
+        // Highlight ngày hôm nay
+        const dayId = 'day-' + new Date().getDay();
+        const el = document.getElementById(dayId);
+        if(el) el.classList.add('today-highlight');
 
+        // Khởi tạo Ảnh trượt
         new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
     </script>
 </body>
