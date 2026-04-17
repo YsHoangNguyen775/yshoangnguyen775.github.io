@@ -1,24 +1,19 @@
-/* Giao diện tổng thể */
 :root { --primary: #3b82f6; --glass: rgba(255, 255, 255, 0.05); }
 body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
-
-/* Hiệu ứng kính */
 .glass { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
 
-/* Thanh ngang điều hướng */
-nav { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+/* Tab buttons */
+.tab-btn { transition: all 0.3s; border-bottom: 2px solid transparent; }
+.tab-btn.active { border-bottom: 2px solid var(--primary); color: var(--primary); background: rgba(59, 130, 246, 0.1); }
 
-/* Avatar & Icons */
-.contact-icon:hover { transform: scale(1.2); color: var(--primary); transition: 0.3s; }
+/* Ẩn các phần nội dung khi chưa chọn */
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.5s; }
 
-/* Thu nhỏ Lịch FullCalendar */
-#calendar-v2 { font-size: 0.8rem; height: 500px; }
-.fc .fc-view-harness { height: 400px !important; }
-.fc-toolbar-title { font-size: 1rem !important; }
-.fc .fc-button { padding: 0.2rem 0.4rem !important; font-size: 0.7rem !important; }
-.fc-daygrid-day-number { color: #94a3b8; text-decoration: none !important; }
-.fc-day-today { background: rgba(59, 130, 246, 0.1) !important; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-/* Nút trôi nổi */
-.floating-btn { transition: all 0.3s; }
-.floating-btn:hover { transform: scale(1.1); }
+/* Lịch tuần xịn */
+.today-highlight { background: rgba(59, 130, 246, 0.2); border: 2px solid #3b82f6 !important; scale: 1.02; }
