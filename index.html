@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Cá Nhân | An Giang</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,47 +22,23 @@
 </head>
 <body>
     <section class="max-w-4xl mx-auto px-6 py-10" data-aos="fade-up">
-        <h2 class="text-2xl font-bold mb-8 flex items-center text-emerald-400">
-            <i class="fa-solid fa-calendar-week mr-3"></i> Lịch Trực & Công Việc Hàng Tuần
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-7 gap-4" id="weekly-calendar">
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-1">
-                <p class="text-xs text-gray-400 uppercase">Thứ 2</p>
-                <p class="font-bold my-2">Trực Chính</p>
-                <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-1 rounded">Tại Trạm</span>
-            </div>
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-2">
-                <p class="text-xs text-gray-400 uppercase">Thứ 3</p>
-                <p class="font-bold my-2">Ra Trực</p>
-                <span class="text-[10px] bg-green-500/20 text-green-400 px-2 py-1 rounded">Nghỉ ngơi</span>
-            </div>
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-3">
-                <p class="text-xs text-gray-400 uppercase">Thứ 4</p>
-                <p class="font-bold my-2">Hành Chính</p>
-                <p class="text-[10px] text-gray-500 italic">Dự án TQKH</p>
-            </div>
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-4">
-                <p class="text-xs text-gray-400 uppercase">Thứ 5</p>
-                <p class="font-bold my-2">Hành Chính</p>
-                <p class="text-[10px] text-gray-500 italic">Học Blender</p>
-            </div>
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-5">
-                <p class="text-xs text-gray-400 uppercase">Thứ 6</p>
-                <p class="font-bold my-2">Trực Đêm</p>
-                <span class="text-[10px] bg-orange-500/20 text-orange-400 px-2 py-1 rounded">Quan trọng</span>
-            </div>
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-6">
-                <p class="text-xs text-gray-400 uppercase">Thứ 7</p>
-                <p class="font-bold my-2">Ra Trực</p>
-                <p class="text-[10px] text-gray-500 italic">Cafe giải trí</p>
-            </div>
-            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-0">
-                <p class="text-xs text-gray-400 uppercase">Chủ Nhật</p>
-                <p class="font-bold my-2">Tự Do</p>
-                <p class="text-[10px] text-gray-500 italic">Family time</p>
-            </div>
-        </div>
-    </section>
+    <h2 class="text-2xl font-bold mb-8 flex items-center text-blue-400">
+        <i class="fa-solid fa-calendar-check mr-3"></i> Kế Hoạch Tập Huấn & Công Việc
+    </h2>
+    <div class="glass p-6 rounded-2xl">
+        <div id="calendar-v2"></div>
+    </div>
+</section>
+
+<style>
+    /* Chỉnh màu cho lịch phù hợp với giao diện tối */
+    #calendar-v2 { background: transparent; color: white; }
+    .fc-theme-standard td, .fc-theme-standard th { border-color: rgba(255,255,255,0.1) !important; }
+    .fc-header-toolbar { margin-bottom: 1.5rem !important; }
+    .fc-button-primary { background-color: #2563eb !important; border: none !important; }
+    .fc-daygrid-day-number { color: #94a3b8; text-decoration: none !important; }
+    .fc-day-today { background: rgba(59, 130, 246, 0.1) !important; }
+</style>
     <section class="min-h-screen flex flex-col items-center justify-center p-6 text-center" data-aos="zoom-in">
         <div class="relative">
             <img src="dalat1.jpg" class="w-32 h-32 rounded-full border-4 border-blue-500 shadow-2xl mb-6 object-cover" alt="Avatar">
@@ -132,13 +109,38 @@
         });
     </script>
     <script>
-        // Tự động highlight ngày hiện tại
-        const today = new Date().getDay(); // 0 là CN, 1 là Thứ 2...
-        const activeDay = document.getElementById('day-' + today);
-        if (activeDay) {
-            activeDay.classList.add('today-highlight');
-        }
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar-v2');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'vi', // Hiển thị tiếng Việt
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            events: [
+                {
+                    title: 'Tập huấn ngành Y',
+                    start: '2026-04-20',
+                    end: '2026-04-22',
+                    color: '#ef4444' // Màu đỏ cho tập huấn
+                },
+                {
+                    title: 'Test Game TQKH',
+                    start: '2026-04-25',
+                    color: '#10b981' // Màu xanh cho dự án game
+                },
+                {
+                    title: 'Trực Trạm Thới Sơn',
+                    start: '2026-04-18T18:00:00',
+                    color: '#f59e0b'
+                }
+            ]
+        });
+        calendar.render();
+    });
+</script>
 </body>
     <div class="fixed bottom-6 right-6 z-[9999] flex flex-col space-y-4">
     <a href="https://zalo.me/0359142775" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
