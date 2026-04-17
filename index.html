@@ -13,7 +13,7 @@
 <body class="bg-[#0f172a]">
 
     <nav class="nav-bar">
-        <div class="max-w-4xl mx-auto flex justify-around">
+        <div class="max-w-4xl mx-auto w-full flex">
             <div onclick="openTab(event, 'tab-profile')" class="tab-btn active">TÔI</div>
             <div onclick="openTab(event, 'tab-anh')" class="tab-btn">ẢNH</div>
             <div onclick="openTab(event, 'tab-lich')" class="tab-btn">LỊCH</div>
@@ -22,51 +22,65 @@
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 mt-[70px] pb-20">
+    <main class="main-content max-w-4xl mx-auto px-6 pb-20">
 
         <div id="tab-profile" class="tab-content active text-center">
-            <img src="dalat1.jpg" class="w-24 h-24 rounded-full border-4 border-blue-500 mx-auto mb-4 object-cover shadow-2xl">
-            <h1 class="text-xl font-bold">Nguyễn Sơn Hoàng 👋</h1>
-            <p class="text-gray-400 text-sm mb-6">Y tế Thới Sơn | An Giang</p>
-            <div class="flex justify-center space-x-4 mb-6">
-                <a href="https://zalo.me/0359142775" target="_blank" class="w-12 h-12 glass-card flex items-center justify-center text-blue-400"><i class="fa-solid fa-comment"></i></a>
-                <a href="tel:0359142775" class="w-12 h-12 glass-card flex items-center justify-center text-green-400"><i class="fa-solid fa-phone"></i></a>
+            <div class="flex flex-col items-center">
+                <img src="dalat1.jpg" class="w-28 h-28 rounded-full border-4 border-blue-500 mb-4 object-cover shadow-2xl">
+                <h1 class="text-2xl font-bold">Nguyễn Sơn Hoàng</h1>
+                <p class="text-blue-400 text-sm mb-6">Y tế Thới Sơn | An Giang</p>
+                
+                <div class="flex space-x-4 mb-8">
+                    <a href="https://zalo.me/0359142775" target="_blank" class="w-12 h-12 glass-card flex items-center justify-center text-blue-400 text-xl"><i class="fa-solid fa-comment"></i></a>
+                    <a href="tel:0359142775" class="w-12 h-12 glass-card flex items-center justify-center text-green-400 text-xl"><i class="fa-solid fa-phone"></i></a>
+                </div>
+
+                <div class="glass-card w-full text-sm italic text-gray-400">
+                    "Chào mừng bạn đến với trang cá nhân của tôi. Đang nghiên cứu Unity & AI Agent thế hệ mới."
+                </div>
             </div>
-            <div class="glass-card text-sm italic text-gray-300">"Nhân viên y tế. Đang phát triển Unity & AI Agent."</div>
         </div>
 
         <div id="tab-anh" class="tab-content">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide rounded-xl overflow-hidden"><img src="dalat1.jpg" class="w-full h-64 object-cover"></div>
-                    <div class="swiper-slide rounded-xl overflow-hidden"><img src="https://via.placeholder.com/800x400?text=Ky+Niem+Gia+Dinh" class="w-full h-64 object-cover"></div>
+                    <div class="swiper-slide"><img src="dalat1.jpg" class="rounded-2xl"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x400?text=Anh+Kỷ+Niệm" class="rounded-2xl"></div>
                 </div>
                 <div class="swiper-pagination mt-4"></div>
             </div>
         </div>
 
         <div id="tab-lich" class="tab-content">
-            <div class="glass-card p-2">
+            <div class="glass-card">
                 <div id="calendar-month"></div>
             </div>
         </div>
 
         <div id="tab-map" class="tab-content">
-            <div class="glass-card h-80 p-1">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.676510065!2d104.99556437503713!3d10.61775098952382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUxLjciRQ!5e0!3m2!1svi!2s!4v1713330000000!5m2!1svi!2s" class="w-full h-full rounded-lg border-0" allowfullscreen="" loading="lazy"></iframe>
+            <div class="glass-card h-[400px] p-1">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.363715392658!2d104.99517807451368!3d10.617750989524022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUwLjYiRQ!5e0!3m2!1svi!2s!4v1713333333333!5m2!1svi!2s" class="w-full h-full rounded-xl border-0" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
-        <div id="tab-khac" class="tab-content space-y-4">
-            <div class="glass-card"><b>Dịch vụ:</b> Tư vấn y tế, hỗ trợ kỹ thuật AI/Unity.</div>
-            <div class="glass-card"><b>Tài liệu:</b> Biểu mẫu trạm y tế Thới Sơn.</div>
+        <div id="tab-khac" class="tab-content">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="glass-card">
+                    <h3 class="font-bold text-orange-400 mb-2">Kỹ năng</h3>
+                    <p class="text-sm">Rigging Blender, Lập trình Unity, Quản lý Y tế cơ sở.</p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="font-bold text-purple-400 mb-2">Dự án</h3>
+                    <p class="text-sm">Game Tam Quốc, AI Agent hỗ trợ báo cáo y tế.</p>
+                </div>
+            </div>
         </div>
 
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        var calendar; // Khai báo biến lịch toàn cục
+        var calendar;
 
         function openTab(evt, tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -74,27 +88,24 @@
             document.getElementById(tabId).classList.add('active');
             evt.currentTarget.classList.add('active');
 
-            // Nếu mở tab lịch, cần render lại lịch để nó hiện đúng kích thước
             if (tabId === 'tab-lich' && calendar) {
-                setTimeout(() => { calendar.updateSize(); }, 10);
+                setTimeout(() => { calendar.updateSize(); }, 50);
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Khởi tạo Lịch Tháng
             var calendarEl = document.getElementById('calendar-month');
             calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 locale: 'vi',
                 headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
                 events: [
-                    { title: 'Tập huấn', start: '2026-04-20', color: '#ef4444' },
-                    { title: 'Trực Trạm', start: '2026-04-17', color: '#3b82f6' }
+                    { title: 'Trực Trạm', start: '2026-04-17', color: '#3b82f6' },
+                    { title: 'Tập huấn', start: '2026-04-20', color: '#ef4444' }
                 ]
             });
             calendar.render();
 
-            // Khởi tạo Ảnh trượt
             new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
         });
     </script>
