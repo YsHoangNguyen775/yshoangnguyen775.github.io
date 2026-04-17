@@ -1,99 +1,203 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Sơn Hoàng | Bio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Cá Nhân | An Giang</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root { --primary-color: #2563eb; }
+        body { background: #0f172a; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .swiper-slide img { width: 100%; height: 400px; object-fit: cover; border-radius: 1rem; }
+        .contact-icon:hover { transform: scale(1.2); transition: 0.3s; }
+        .today-highlight { background: rgba(59, 130, 246, 0.2); border: 2px solid #3b82f6 !important; }
+    </style>
 </head>
-<body class="bg-[#0f172a]">
-    <nav class="nav-bar">
-        <div class="max-w-4xl mx-auto flex justify-around">
-            <div onclick="openTab(event, 'tab-profile')" class="tab-btn active uppercase">Tôi</div>
-            <div onclick="openTab(event, 'tab-anh')" class="tab-btn uppercase">Ảnh</div>
-            <div onclick="openTab(event, 'tab-lich')" class="tab-btn uppercase">Lịch</div>
-            <div onclick="openTab(event, 'tab-map')" class="tab-btn uppercase">Bản đồ</div>
-            <div onclick="openTab(event, 'tab-khac')" class="tab-btn uppercase">Khác</div>
-        </div>
-    </nav>
-    <main class="max-w-4xl mx-auto px-6 mt-[70px] pb-20">
-    <section class="min-h-screen flex flex-col items-center justify-center p-6 text-center" data-aos="zoom-in">
-        <div id="tab-profile" class="tab-content active text-center">
-        <img src="dalat1.jpg" class="w-32 h-32 rounded-full border-4 border-blue-500 shadow-2xl mb-6 object-cover" alt="Avatar">
-        <div class="absolute bottom-6 right-0 w-6 h-6 bg-green-500 border-2 border-white rounded-full"></div>
+<body>
+
+    <section class="min-h-screen flex flex-col items-center justify-center p-6 text-center" data-aos="zoom-in">
+        <div class="relative">
+            <img src="dalat1.jpg" class="w-32 h-32 rounded-full border-4 border-blue-500 shadow-2xl mb-6 object-cover" alt="Avatar">
+            <div class="absolute bottom-6 right-0 w-6 h-6 bg-green-500 border-2 border-white rounded-full"></div>
+        </div>
         <h1 class="text-4xl font-bold mb-2">Xin chào, tôi là Nguyễn Sơn Hoàng! 👋</h1>
-        <p class="text-gray-400 mb-8 max-w-md">Chào mừng bạn đến với không gian nhỏ của tôi. Nơi lưu giữ kỷ niệm và kết nối công việc.</p> 
+        <p class="text-gray-400 mb-8 max-w-md">Chào mừng bạn đến với không gian nhỏ của tôi. Nơi lưu giữ kỷ niệm và kết nối công việc.</p>
+        
         <div class="flex space-x-6 text-3xl mb-10">
             <a href="https://zalo.me/0359142775" target="_blank" class="text-blue-400 contact-icon"><i class="fa-solid fa-comment"></i></a>
             <a href="https://t.me/hoangnguyen775" target="_blank" class="text-sky-400 contact-icon"><i class="fa-brands fa-telegram"></i></a>
             <a href="tel:0359142775" class="text-green-400 contact-icon"><i class="fa-solid fa-phone"></i></a>
         </div>
-        </div>
-            <a href="#gallery" class="animate-bounce text-blue-500"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        <a href="#gallery" class="animate-bounce text-blue-500"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+    </section>
+    <section class="max-w-4xl mx-auto px-6 py-10" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-8 flex items-center text-blue-400">
+        <i class="fa-solid fa-calendar-check mr-3"></i> Kế Hoạch Tập Huấn & Công Việc
+    </h2>
+    <div class="glass p-6 rounded-2xl">
+        <div id="calendar-v2"></div>
+    </div>
+</section>
+
+<style>
+    /* Chỉnh màu cho lịch phù hợp với giao diện tối */
+    #calendar-v2 { background: transparent; color: white; }
+    .fc-theme-standard td, .fc-theme-standard th { border-color: rgba(255,255,255,0.1) !important; }
+    .fc-header-toolbar { margin-bottom: 1.5rem !important; }
+    .fc-button-primary { background-color: #2563eb !important; border: none !important; }
+    .fc-daygrid-day-number { color: #94a3b8; text-decoration: none !important; }
+    .fc-day-today { background: rgba(59, 130, 246, 0.1) !important; }
+</style>
+    <section id="gallery" class="max-w-4xl mx-auto px-6 py-20" data-aos="fade-up">
+        <h2 class="text-2xl font-bold mb-8 flex items-center"><i class="fa-solid fa-camera-retro mr-3"></i> Kỷ Niệm Gia Đình & Cá Nhân</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://via.placeholder.com/800x400/1e293b/ffffff?text=Anh+Gia+Dinh+1"></div>
+                <div class="swiper-slide"><img src="https://via.placeholder.com/800x400/1e293b/ffffff?text=Anh+Ca+Nhan+2"></div>
+                <div class="swiper-slide"><img src="https://via.placeholder.com/800x400/1e293b/ffffff?text=Hinh+Anh+3D+Blender"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </section>
 
-        <div id="tab-anh" class="tab-content">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide rounded-xl overflow-hidden"><img src="dalat1.jpg" class="w-full h-64 object-cover"></div>
-                    <div class="swiper-slide rounded-xl overflow-hidden"><img src="https://via.placeholder.com/800x400?text=Kỷ+Niệm+Gia+Đình" class="w-full h-64 object-cover"></div>
-                </div>
-                <div class="mt-4 flex justify-center space-x-2 swiper-pagination"></div>
-            </div>
-        </div>
-        <nav class="nav-bar">
+    <section class="max-w-4xl mx-auto px-6 py-10" data-aos="fade-right">
+        <div class="glass p-6 rounded-2xl">
+            <h3 class="text-xl font-bold mb-4 text-blue-400"><i class="fa-solid fa-newspaper mr-2"></i> Trạng thái mới nhất</h3>
+            <p class="italic">"Đang là nhân viên nhà nước ngành y. Đang tập trung phát triển dự án trên unity và Ai Agent thế hệ mới. Cứ đi rồi sẽ đến!"</p>
+            <p class="text-xs text-gray-500 mt-4">— Cập nhật ngày 17/04/2026</p>
+        </div>
+    </section>
 
-    </nav>
+    <section class="max-w-4xl mx-auto px-6 py-20" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-8 flex items-center"><i class="fa-solid fa-map-location-dot mr-3"></i> Địa chỉ liên hệ</h2>
+    <div class="glass p-4 rounded-2xl overflow-hidden h-80">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.3243306385153!2d104.9951780745731!3d10.617756362009292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUxLjkiRQ!5e0!3m2!1svi!2svn!4v1713330000000!5m2!1svi!2svn" 
+            class="w-full h-full border-0 rounded-lg" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <p class="mt-4 text-center text-gray-400">Khu vực: Thới Sơn, Tịnh Biên, An Giang (Mã Plus: JX9X+442)</p>
+</section>
+<section class="max-w-4xl mx-auto px-6 py-10" data-aos="fade-up">
+        <h2 class="text-2xl font-bold mb-8 flex items-center text-emerald-400">
+            <i class="fa-solid fa-calendar-week mr-3"></i> Lịch Trực & Công Việc Hàng Tuần
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-7 gap-4" id="weekly-calendar">
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-1">
+                <p class="text-xs text-gray-400 uppercase">Thứ 2</p>
+                <p class="font-bold my-2">Trực Chính</p>
+                <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-1 rounded">Tại Trạm</span>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-2">
+                <p class="text-xs text-gray-400 uppercase">Thứ 3</p>
+                <p class="font-bold my-2">Ra Trực</p>
+                <span class="text-[10px] bg-green-500/20 text-green-400 px-2 py-1 rounded">Nghỉ ngơi</span>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-3">
+                <p class="text-xs text-gray-400 uppercase">Thứ 4</p>
+                <p class="font-bold my-2">Hành Chính</p>
+                <p class="text-[10px] text-gray-500 italic">Dự án TQKH</p>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-4">
+                <p class="text-xs text-gray-400 uppercase">Thứ 5</p>
+                <p class="font-bold my-2">Hành Chính</p>
+                <p class="text-[10px] text-gray-500 italic">Học Blender</p>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-5">
+                <p class="text-xs text-gray-400 uppercase">Thứ 6</p>
+                <p class="font-bold my-2">Trực Đêm</p>
+                <span class="text-[10px] bg-orange-500/20 text-orange-400 px-2 py-1 rounded">Quan trọng</span>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-6">
+                <p class="text-xs text-gray-400 uppercase">Thứ 7</p>
+                <p class="font-bold my-2">Ra Trực</p>
+                <p class="text-[10px] text-gray-500 italic">Cafe giải trí</p>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border border-slate-700" id="day-0">
+                <p class="text-xs text-gray-400 uppercase">Chủ Nhật</p>
+                <p class="font-bold my-2">Tự Do</p>
+                <p class="text-[10px] text-gray-500 italic">Family time</p>
+            </div>
+        </div>
+    </section>
+    <footer class="py-10 text-center text-gray-600 text-sm">
+        <p>Thiết kế bởi Gemini cho người bạn An Giang</p>
+    </footer>
 
-        <div id="tab-lich" class="tab-content">
-            <h2 class="font-bold text-blue-400 mb-4">Lịch Công Việc Tuần</h2>
-            <div class="grid grid-cols-1 gap-2">
-                <div class="glass-card flex justify-between items-center" id="day-1"><span>Thứ 2</span><b>Trực Chính</b></div>
-                <div class="glass-card flex justify-between items-center" id="day-2"><span>Thứ 3</span><b>Ra Trực</b></div>
-                <div class="glass-card flex justify-between items-center" id="day-3"><span>Thứ 4</span><b>Hành Chính</b></div>
-                <div class="glass-card flex justify-between items-center" id="day-4"><span>Thứ 5</span><b class="text-orange-400">Tập Huấn</b></div>
-                <div class="glass-card flex justify-between items-center" id="day-5"><span>Thứ 6</span><b>Trực Đêm</b></div>
-                <div class="glass-card flex justify-between items-center" id="day-6"><span>Thứ 7</span><b>Nghỉ</b></div>
-                <div class="glass-card flex justify-between items-center" id="day-0"><span>Chủ Nhật</span><b>Nghỉ</b></div>
-            </div>
-        </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Khởi tạo hiệu ứng bay nhảy
+        AOS.init({ duration: 1000, once: true });
 
-        <div id="tab-map" class="tab-content">
-            <div class="glass-card h-80 overflow-hidden p-1">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15701.32599388339!2d104.9877!3d10.6177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM3JzAzLjkiTiAxMDTCsDU5JzUxLjkiRQ!5e0!3m2!1svi!2svn!4v1713360000000!5m2!1svi!2svn" class="w-full h-full rounded-lg border-0" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <p class="text-center text-xs mt-4 text-gray-500">Tọa độ: Thới Sơn, Tịnh Biên, An Giang</p>
-        </div>
-
-        <div id="tab-khac" class="tab-content">
-            <div class="space-y-4">
-                <div class="glass-card"><b>Kiến thức:</b> Rigging Blender, Unity AI.</div>
-                <div class="glass-card"><b>Tài liệu:</b> Biểu mẫu y tế Thới Sơn.</div>
-            </div>
-        </div>
-
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        // Khởi tạo Slider ảnh tự chạy
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        });
+    </script>
+    <script>
+        // Tự động highlight ngày hiện tại
+        const today = new Date().getDay(); // 0 là CN, 1 là Thứ 2...
+        const activeDay = document.getElementById('day-' + today);
+        if (activeDay) {
+            activeDay.classList.add('today-highlight');
+        }
+    </script>
     <script>
-        // Chuyển Tab
-        function openTab(evt, tabId) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
-
-        // Highlight ngày hôm nay
-        const dayId = 'day-' + new Date().getDay();
-        const el = document.getElementById(dayId);
-        if(el) el.classList.add('today-highlight');
-
-        // Khởi tạo Ảnh trượt
-        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar-v2');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'vi', // Hiển thị tiếng Việt
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            events: [
+                {
+                    title: 'Tập huấn ngành Y',
+                    start: '2026-04-20',
+                    end: '2026-04-22',
+                    color: '#ef4444' // Màu đỏ cho tập huấn
+                },
+                {
+                    title: 'Test Game TQKH',
+                    start: '2026-04-25',
+                    color: '#10b981' // Màu xanh cho dự án game
+                },
+                {
+                    title: 'Trực Trạm Thới Sơn',
+                    start: '2026-04-18T18:00:00',
+                    color: '#f59e0b'
+                }
+            ]
+        });
+        calendar.render();
+    });
+</script>
 </body>
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col space-y-4">
+    <a href="https://zalo.me/0359142775" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+        <i class="fa-solid fa-comment text-white"></i>
+    </a>
+    <a href="tel:0359142775" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+        <i class="fa-solid fa-phone text-white"></i>
+    </a>
+</div>
 </html>
