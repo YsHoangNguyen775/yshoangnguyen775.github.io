@@ -1,0 +1,24 @@
+/* Giao diện tổng thể */
+:root { --primary: #3b82f6; --glass: rgba(255, 255, 255, 0.05); }
+body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+
+/* Hiệu ứng kính */
+.glass { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* Thanh ngang điều hướng */
+nav { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* Avatar & Icons */
+.contact-icon:hover { transform: scale(1.2); color: var(--primary); transition: 0.3s; }
+
+/* Thu nhỏ Lịch FullCalendar */
+#calendar-v2 { font-size: 0.8rem; height: 500px; }
+.fc .fc-view-harness { height: 400px !important; }
+.fc-toolbar-title { font-size: 1rem !important; }
+.fc .fc-button { padding: 0.2rem 0.4rem !important; font-size: 0.7rem !important; }
+.fc-daygrid-day-number { color: #94a3b8; text-decoration: none !important; }
+.fc-day-today { background: rgba(59, 130, 246, 0.1) !important; }
+
+/* Nút trôi nổi */
+.floating-btn { transition: all 0.3s; }
+.floating-btn:hover { transform: scale(1.1); }
