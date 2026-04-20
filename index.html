@@ -116,16 +116,20 @@ t<!DOCTYPE html>
                 initialView: 'dayGridMonth',
                 locale: 'vi',
                 headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
-                events: [
-                   { title: 'Nghỉ bù Giỗ Tổ Hùng Vương', start: '2026-04-27', color: '#ef4444' },
-                    { title: 'Nghỉ lễ 30/4', start: '2026-04-30', color: '#ef4444' },
-                    { title: 'Nghỉ lễ 1/5', start: '2026-05-01', color: '#ef4444' },
-                    { title: 'Nghỉ lễ', start: '2026-05-02', color: '#ef4444' },
-                    { title: 'Nghỉ lễ', start: '2026-05-03', color: '#ef4444' },
-                      { title: 'Nghỉ lễ', start: '2026-05-03', color: '#ef4444' },
-                  { title: 'Tập huấn', start: '2026-05-07', color: '#ef4444' },
-                  { title: 'Tập huấn', start: '2026-05-08', color: '#ef4444' }
-                    ]
+                events: events: [
+  { title: 'Tiêm chủng', start: '2026-04-20', color: '#f59e0b' },
+  { title: 'Trực Trạm', start: '2026-04-21', color: '#3b82f6' },
+  { title: 'Trực Trạm', start: '2026-04-24', color: '#3b82f6' },
+
+  { title: 'Nghỉ bù Giỗ Tổ Hùng Vương', start: '2026-04-27', color: '#ef4444' },
+  { title: 'Nghỉ lễ 30/4', start: '2026-04-30', color: '#ef4444' },
+  { title: 'Nghỉ lễ 1/5', start: '2026-05-01', color: '#ef4444' },
+  { title: 'Nghỉ lễ', start: '2026-05-02', color: '#ef4444' },
+  { title: 'Nghỉ lễ', start: '2026-05-03', color: '#ef4444' },
+
+  { title: 'Tập huấn', start: '2026-05-07', color: '#8b5cf6' },
+  { title: 'Tập huấn', start: '2026-05-08', color: '#8b5cf6' }
+]
             });
             calendar.render();
             new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
