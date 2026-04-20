@@ -97,44 +97,56 @@ t<!DOCTYPE html>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        var calendar;
+    var calendar;
 
-        function openTab(evt, tabId) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.btn-menu').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            evt.currentTarget.classList.add('active');
+    function openTab(evt, tabId) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.btn-menu').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        evt.currentTarget.classList.add('active');
 
-            if (tabId === 'tab-lich' && calendar) {
-                setTimeout(() => { calendar.updateSize(); }, 150);
-            }
+        if (tabId === 'tab-lich' && calendar) {
+            // Sử dụng setTimeout để đảm bảo tab đã hiển thị trước khi tính toán lại kích thước
+            setTimeout(() => { calendar.updateSize(); }, 150);
         }
+    }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar-month');
-            calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'vi',
-                headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
-                events: events: [
-  { title: 'Tiêm chủng', start: '2026-04-20', color: '#f59e0b' },
-  { title: 'Trực Trạm', start: '2026-04-21', color: '#3b82f6' },
-  { title: 'Trực Trạm', start: '2026-04-24', color: '#3b82f6' },
-
-  { title: 'Nghỉ bù Giỗ Tổ Hùng Vương', start: '2026-04-27', color: '#ef4444' },
-  { title: 'Nghỉ lễ 30/4', start: '2026-04-30', color: '#ef4444' },
-  { title: 'Nghỉ lễ 1/5', start: '2026-05-01', color: '#ef4444' },
-  { title: 'Nghỉ lễ', start: '2026-05-02', color: '#ef4444' },
-  { title: 'Nghỉ lễ', start: '2026-05-03', color: '#ef4444' },
-
-  { title: 'Tập huấn', start: '2026-05-07', color: '#8b5cf6' },
-  { title: 'Tập huấn', start: '2026-05-08', color: '#8b5cf6' }
-]
-            });
-            calendar.render();
-            new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar-month');
+        
+        calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'vi',
+            headerToolbar: { 
+                left: 'prev,next', 
+                center: 'title', 
+                right: 'today' 
+            },
+            // Đã sửa: Xóa bớt chữ "events:" dư thừa và căn chỉnh mảng
+            events: [
+                { title: 'Tiêm chủng', start: '2026-04-20', color: '#f59e0b' },
+                { title: 'Trực Trạm', start: '2026-04-21', color: '#3b82f6' },
+                { title: 'Trực Trạm', start: '2026-04-24', color: '#3b82f6' },
+                { title: 'Nghỉ bù Giỗ Tổ Hùng Vương', start: '2026-04-27', color: '#ef4444' },
+                { title: 'Nghỉ lễ 30/4', start: '2026-04-30', color: '#ef4444' },
+                { title: 'Nghỉ lễ 1/5', start: '2026-05-01', color: '#ef4444' },
+                { title: 'Nghỉ lễ', start: '2026-05-02', color: '#ef4444' },
+                { title: 'Nghỉ lễ', start: '2026-05-03', color: '#ef4444' },
+                { title: 'Tập huấn', start: '2026-05-07', color: '#8b5cf6' },
+                { title: 'Tập huấn', start: '2026-05-08', color: '#8b5cf6' }
+            ]
         });
-    </script>
+
+        calendar.render();
+
+        // Khởi tạo Swiper
+        new Swiper(".mySwiper", { 
+            loop: true, 
+            autoplay: { delay: 3000 }, 
+            pagination: { el: ".swiper-pagination" } 
+        });
+    });
+</script>
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="094bee6d-a7de-4b3c-a7da-257e75befcad";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </div>
 </body>
